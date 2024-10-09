@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+
+    <!-- ROW 1 -->
+    <section id="section1">
+      <div id="s1c1">
+        <p class="titleFont"><span id="titleYear">2022</span> <br>Household Incomes <br>across Malaysia</p><br>
+        <p class="subtext">
+          Household incomes in Malaysia vary across states. 
+          In cities like Kuala Lumpur, higher incomes reflect the opportunities of urban life, 
+          Meanwhile, rural states like Kelantan tell a different story where traditional livelihoods and 
+          limited resources result in lower income levels. 
+        </p>
+      </div>
+      <div id="map"></div>
+    </section>
+
+    <!-- ROW 2 -->
+    <section id="section2">
+      <div id="donut" class="s2c1"></div>
+      <div class="s2c2">
+        <span class="titletext">Total number of households in Malaysia in 2022<br></span>
+        <div class="textspacing numbertext">8,605,100</div><br>
+        <span class="subtext">Despite Selangor having the highest number of households, <u><b>Kuala Lumpur</b> recorded the highest mean income of <b>RM13,325</b></u>. 
+          This indicates that household numbers do not directly influence income levels, but rather economic activities and 
+          opportunities within each state play a more significant role.</span>
+      </div>
+    </section>
+
+    <!-- ROW 3 -->
+    <section id="section3">
+      <div id="line"></div>
+      <hr>
+      <p>
+        <span class="titletext"> Mean Household Income across States <br>from <span style="color:brown;">1970-2022</span></span><br><br>
+        <span class="text">Over the years, mean household incomes in Malaysia have shown a steady increase.</span><br><br>
+        <span class="subtext">However, there was a sudden drop in household income in 2021 for every state, reflecting the economic impact of the Covid-19 pandemic at that time.</span>
+      </p>
+    </section>
+    <section id="section4">
+      <div id="bar"></div>
+      <hr>
+      <p>
+        <span class="titletext"> Comparison of Mean Household Income and <span style="color:#8ca252;">Expenditure</span> by State</span><br><br>
+        <span class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, ipsam!</span><br><br>
+        <span class="subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nam nemo nulla. Dolore id ea enim temporibus corrupti velit minus.</span>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

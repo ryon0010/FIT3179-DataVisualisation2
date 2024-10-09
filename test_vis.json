@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A donut chart showing the number of households by state.",
+  "data": {
+    "url": "hh_lq_state.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "households",
+          "as": "TotalHouseholds"
+        }
+      ],
+      "groupby": ["state"]
+    }
+  ],
+  "width": 500,
+  "height": 500,
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 100,
+        "stroke": "#fff"
+      },
+      "encoding": {
+        "theta": {
+          "field": "TotalHouseholds",
+          "type": "quantitative",
+          "sort": {
+            "op": "sum",
+            "field": "TotalHouseholds"
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "scheme": "category10"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "TotalHouseholds",
+            "type": "quantitative",
+            "title": "Total Households"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+

@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url":"hies_state.csv"},
+    "params": [
+      {
+        "name": "state_selection",
+        "value": "Kuala Lumpur",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Kuala Lumpur",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Pulau Pinang",
+            "Perak",
+            "Perlis",
+            "Selangor"
+          ],
+          "name":"Select State: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": {
+          "param": "state_selection",
+          "test": "datum.state === state_selection"
+        }
+      },
+      {
+        "fold": ["spending_rate", "saving_rate"],
+        "as": ["Rate", "Value"]
+      }
+    ],
+    "width": 400,
+    "height": 400,
+    "mark": "arc",
+    "encoding": {
+      "theta": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Rate (%)"
+      },
+      "color": {
+        "field": "Rate",
+        "type": "nominal",
+        "scale": {
+          "domain": ["spending_rate", "saving_rate"],
+          "range": ["#ff7f0e", "#1f77b4"]
+        },
+        "legend": {"title": "Rate Type"}
+      },
+      "tooltip": [
+        {"field": "Rate", "type": "nominal", "title": "Rate Type"},
+        {"field": "Value", "type": "quantitative", "title": "Value (%)"}
+      ]
+    }
+  }
+
+  
+  

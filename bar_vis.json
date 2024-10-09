@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "hies_state.csv"  
+  },
+  "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "transform": [
+    {
+      "fold": ["income_mean", "expenditure_mean"],
+      "as": ["Measure", "Value"]
+    },
+    {
+      "calculate": "datum.Measure == 'income_mean' ? 'Mean Household Income' : 'Mean Household Expenditure'",
+      "as": "RenamedMeasure"
+    },
+    {
+      "calculate": "datum.Measure == 'expenditure_mean' ? -datum.Value : datum.Value",
+      "as": "DivergingValue"
+    }
+  ],
+  "width": 750,
+  "height":250,
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": {"field": "income_mean", "order": "descending"},
+      "axis": {"title": "State", "labelAngle": 0}
+    },
+    "x": {
+      "field": "DivergingValue",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "RenamedMeasure",  
+      "type": "nominal",
+      "scale": {
+        "domain": ["Mean Household Income", "Mean Household Expenditure"],
+        "range": ["#843c39", "#5254a3"]
+      },
+      "legend": {
+        "title": "Measure",
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "RenamedMeasure", "type": "nominal", "title": "Measure"},
+      {"field": "Value", "type": "quantitative", "title": "Value"}
+    ]
+  }
+}
