@@ -56,7 +56,7 @@ section {
 
 .text{
     font-size: medium;
-    font-weight: bold;
+    font-weight:600;
 }
 
 .subtext{
@@ -77,15 +77,14 @@ section {
 /* SECTION 1 */
 #section1{
     height: 40vh;
-    border-bottom: 2px solid #333;
-    padding-bottom: 2rem;
     width: 100%;
 }
 
 #s1c1{
     flex:1.2;
+    justify-content: center;
+    align-items: center;
     padding-top: 1rem;
-    /* border-bottom: 2px solid #333;  */
 }
 
 #map{
@@ -95,18 +94,71 @@ section {
 }
 
 /* SECTION 2 */
-#donut{
-    align-items: center;
+#section2{
+    width: 100%;
 }
+#donut{
+    flex:1;
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+}
+
 .s2c1{
-    flex:1.2
+    flex:1;
 }
 
 .s2c2{
-    flex:3;
-    padding: 1rem;
+    flex:6.5;
 }
 
+/* SECTION 3 */
+#section3{
+    height: fit-content;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+#line{
+    padding:0;
+    margin:0;
+    height:100%;
+    width: 100%;
+}
+
+.s3c1{
+    flex:2;
+}
+
+.s3c2{
+    flex:1;
+}
+
+
+
+#section4{
+    height: fit-content;
+    width: 100%;
+    padding-top: 0rem;
+}
+
+#bar{
+    padding:0;
+    margin:0;
+    height:100%;
+    width: 100%;
+}
+
+.s4c1{
+    flex:2;
+}
+
+.s4c2{
+    flex:1;
+}
+
+/* 
 .textspacing{
     margin-top: 1rem; 
 }
@@ -122,7 +174,7 @@ section {
     width: 100%;
 }
 
-/* SECTION 3 */
+
 #section3{
     height: 30vh;
     padding-top: 2rem;
@@ -139,4 +191,4 @@ section {
 
 #line{
     height: 100%;
-}
+} */

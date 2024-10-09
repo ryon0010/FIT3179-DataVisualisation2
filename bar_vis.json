@@ -3,11 +3,6 @@
   "data": {
     "url": "hies_state.csv"  
   },
-  "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
   "transform": [
     {
       "fold": ["income_mean", "expenditure_mean"],
@@ -22,8 +17,8 @@
       "as": "DivergingValue"
     }
   ],
-  "width": 750,
-  "height":250,
+  "width": "container",
+  "height": 200,  
   "mark": "bar",
   "encoding": {
     "y": {
