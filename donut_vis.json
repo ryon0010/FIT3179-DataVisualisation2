@@ -1,63 +1,70 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A donut chart showing the number of households by state.",
-    "data": {
-      "url": "hh_lq_state.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A donut chart showing the number of households by state.",
+  "data": {
+    "url": "hh_lq_state.csv"
+  },
+  "title": {
+    "text": "Distribution of Household Incomes",
+    "anchor": "middle",
+    "orient": "bottom",
+    "offset": 10
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "households",
+          "as": "TotalHouseholds"
+        }
+      ],
+      "groupby": ["state"]
     },
-    "transform": [
-      {
-        "aggregate": [
-          {
+    {
+      "filter": "datum.state != null && datum.TotalHouseholds > 0"
+    }
+  ],
+  "width": 230, 
+  "height": 230,  
+  "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 60,
+        "stroke": "#fff"
+      },
+      "encoding": {
+        "theta": {
+          "field": "TotalHouseholds",
+          "type": "quantitative",
+          "sort": {
             "op": "sum",
-            "field": "households",
-            "as": "TotalHouseholds"
+            "field": "TotalHouseholds"
           }
-        ],
-        "groupby": ["state"]
-      }
-    ],
-    "width": 80, 
-    "height": 80,  
-    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
-    "layer": [
-      {
-        "mark": {
-          "type": "arc",
-          "innerRadius": 70,
-          "stroke": "#fff"
         },
-        "encoding": {
-          "theta": {
-            "field": "TotalHouseholds",
-            "type": "quantitative",
-            "sort": {
-              "op": "sum",
-              "field": "TotalHouseholds"
-            }
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "scheme":"tableau20"
           },
-          "color": {
+          "title": "State"
+        },
+        "tooltip": [
+          {
             "field": "state",
             "type": "nominal",
-            "scale": {
-              "scheme": "category20b"
-            }, "legend": null
+            "title": "State"
           },
-          "tooltip": [
-            {
-              "field": "state",
-              "type": "nominal",
-              "title": "State"
-            },
-            {
-              "field": "TotalHouseholds",
-              "type": "quantitative",
-              "title": "Total Households"
-            }
-          ]
-        }
+          {
+            "field": "TotalHouseholds",
+            "type": "quantitative",
+            "title": "Total Households"
+          }
+        ]
       }
-    ]
-  }
-  
-  
-  
+    }
+  ]
+}

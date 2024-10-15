@@ -15,6 +15,10 @@
     {
       "calculate": "datum.Measure == 'expenditure_mean' ? -datum.Value : datum.Value",
       "as": "DivergingValue"
+    },
+    {
+      "calculate": "datum.income_mean >= 10000 ? 1 : 0.5",
+      "as": "opacity"
     }
   ],
   "width": "container",
@@ -29,20 +33,26 @@
     },
     "x": {
       "field": "DivergingValue",
-      "type": "quantitative"
+      "type": "quantitative",
+      "axis":{"title":"Mean Household Expenditure/Income (MYR)"}
     },
     "color": {
       "field": "RenamedMeasure",  
       "type": "nominal",
       "scale": {
         "domain": ["Mean Household Income", "Mean Household Expenditure"],
-        "range": ["#843c39", "#5254a3"]
+        "range": ["#5D9C5D", "#5254a3"]
       },
       "legend": {
-        "title": "Measure",
+        "title": null,
         "orient": "bottom",
         "direction": "horizontal"
       }
+    },
+    "opacity": {
+      "field": "opacity",
+      "type": "quantitative",
+      "legend":null
     },
     "tooltip": [
       {"field": "state", "type": "nominal", "title": "State"},

@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": {
+      "text": "Spending/Poverty Rate per State",
+      "fontSize": 16 
+    },
+    "data": {"url": "hies_state.csv"},
+    "params": [
+      {
+        "name": "meanIncomeFilter",
+        "value": 15000,  
+        "bind": {
+          "input": "range",
+          "min": 5000,
+          "max": 15000,
+          "step": 500,
+          "name": "Mean Income Filter"
+        }
+      },
+      {
+        "name": "spendingRateFilter",
+        "value": 100, 
+        "bind": {
+          "input": "range",
+          "min": 50,
+          "max": 100,
+          "step": 1,
+          "name": "Spending Rate Filter"
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "datum.income_mean <= meanIncomeFilter && datum.spending_rate <= spendingRateFilter" 
+      }
+    ],
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "x": {
+            "field": "spending_rate",
+            "type": "quantitative",
+            "title": "Spending Rate",
+            "scale": {"domain": [50, 75]}
+          },
+          "y": {
+            "field": "poverty",
+            "type": "quantitative",
+            "title": "Poverty Rate"
+          },
+          "color": {
+            "field": "state",
+            "type": "nominal",
+            "scale": {"scheme": "tableau20"}
+          },
+          "size": {
+            "field": "income_mean",
+            "type": "quantitative",
+            "title": "Mean Household Income",
+            "scale": {  
+              "domain": [5000, 6000, 6500, 8000, 12000, 14000],
+              "range": [100, 300, 450, 500, 950, 1500]
+            }
+          }
+        }
+      }
+    ]
+  }
+  

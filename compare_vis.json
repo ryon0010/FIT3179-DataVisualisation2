@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url":"comparison_state.csv"},
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "income_mean", "type": "quantitative","axis":{"title": "Mean Household Income"} },
+      "y": {"field": "state", "type": "nominal", "axis":{"title":null, "ticks":false}},
+      "color": {"field":"state","legend":null, "scale":{"range":["#A9A9A9","#FFBF79"]}},
+      "tooltip": [ 
+        {"field": "state", "type": "nominal", "title": "State"},
+        {"field": "income_mean", "type": "quantitative", "title": "Mean Household Income"}
+        ]
+    }
+}
+  

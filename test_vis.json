@@ -16,46 +16,28 @@
       "groupby": ["state"]
     }
   ],
-  "width": 500,
-  "height": 500,
-  "layer": [
-    {
-      "mark": {
-        "type": "arc",
-        "innerRadius": 100,
-        "stroke": "#fff"
-      },
-      "encoding": {
-        "theta": {
-          "field": "TotalHouseholds",
+  {
+    "width": 300,
+    "height": 300,
+    "mark": {"type": "arc", "innerRadius": 75},
+    "encoding": {
+      "theta": {"field": "households", "type": "quantitative"},
+      "color": {"field": "state", "type": "nominal"},
+      "stroke": {"value": "white"},
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "State"},
+        {
+          "field": "households",
           "type": "quantitative",
-          "sort": {
-            "op": "sum",
-            "field": "TotalHouseholds"
-          }
-        },
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "scheme": "category10"
-          }
-        },
-        "tooltip": [
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "TotalHouseholds",
-            "type": "quantitative",
-            "title": "Total Households"
-          }
-        ]
-      }
+          "title": "Mean Income (RM)",
+          "format": ","
+        }
+      ]
     }
-  ]
+  }
 }
+
+
+
 
 

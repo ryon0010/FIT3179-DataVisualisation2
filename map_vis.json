@@ -2,7 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "projection": {"type": "mercator"},
   "width": "container", 
-  "height": "container",  
+  "height": "container", 
+  "title": {
+    "text": "2022 Mean Household Income Across States in Malaysia"
+  },
   "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
   "autosize": {
     "type": "fit",
@@ -12,6 +15,12 @@
     "url": "ne_1.json",
     "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
   },
+  "params": [
+    {
+      "name": "selectedState",
+      "select": {"type": "point", "fields": ["properties.name"], "on": "click"}
+    }
+  ],
   "transform": [
     {
       "lookup": "properties.name",
@@ -32,16 +41,25 @@
           "field": "income_mean",
           "type": "quantitative",
           "scale": {
+            "type": "threshold",
             "scheme": "yellowgreenblue",
-            "domain": [5000, 10000, 15000] 
+            "domain": [5000, 6400, 8000, 8500, 12000, 13000]
           },
           "legend": {
             "orient": "bottom-right",  
-            "title": "Mean Income (MYR)",
+            "title": "Mean Household Income (MYR)",
+            "titleFontSize": 10,
+            "labelFontSize": 8,
             "direction": "horizontal",
-            "gradientLength": 150,          
-            "gradientThickness": 12
+            "offset": 0    
           }
+        },
+        "opacity": {
+          "condition": {
+            "param": "selectedState", 
+            "value": 1
+          },
+          "value": 0.2 
         },
         "tooltip": [
           {"field": "properties.name", "type": "nominal", "title": "State"},
@@ -49,7 +67,5 @@
         ]
       }
     }
-    
   ]
 }
-

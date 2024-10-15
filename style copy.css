@@ -5,10 +5,14 @@
   
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #3f5061;
 }
-   
-main {
-    padding: 5vh 30vh 5vh 30vh;
+
+main{
+    margin: 3vh 27vh 4vh 27vh;
+    background-color: white;
+    padding: 5vh;
+    border-radius: 10px;
 }
 
 .vg-legend {
@@ -20,29 +24,31 @@ main {
     display: flex;
     align-items: end;
     justify-content: right;
-  }
+}
+
 
 /* TITLE */
 section {
     display: flex;
     gap: 2rem;
-    padding-bottom: 2rem;
     justify-content: space-between;
     height: fit-content;
     width: fit-content;
-    /* background-color: blueviolet; */
 }
 
-#titleYear{
+.titleFont, .titleYear{
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 5.2vh; 
+}
+
+.titleYear{
     color: brown;
-    font-size: 5.2vh;
+    font-size: 4.5vh; 
 }
 
 .titleFont{
-    font-family: "Inter", sans-serif;
-    font-weight: 900;
-    font-size: 4.3vh;
-    
+    padding-bottom: 1rem;
 }
 
 .titletext{
@@ -52,9 +58,9 @@ section {
 }
 
 .text{
-    font-size: medium;
+    font-size: 2vh;
     font-weight:600;
-    color:rgb(79, 78, 78);
+    color: #3f5061;
 }
 
 .subtext{
@@ -74,27 +80,31 @@ section {
 
 /* SECTION 1 */
 #section1{
-    height: 75vh;
-    width: 100%;
-    flex-direction: column;
-}
-
-#s1c1{
-    flex:1;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1rem;
-}
-
-#map{
-    flex:4;
-    margin: 0;  
-    padding: 0;
+    background-color: #3f5061;
+    height: fit-content;
 }
 
 /* SECTION 2 */
 #section2{
-    padding-top: 3rem;
+    height: 60vh;
+    width: 500px;
+    padding-top: 2rem;
+    background-color: #12589d;
+}
+
+/* 
+.t1{
+    padding-top: 2rem;
+}
+
+#map{
+    flex: 1;
+    margin: 0; 
+    padding: 0; 
+} */
+
+/* SECTION 2 */
+/* #section2{
     width: 100%;
 }
 #donut{
@@ -111,17 +121,10 @@ section {
 
 .s2c2{
     flex:6.5;
-}
-
-.s2c2-lower{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
-    gap: 2rem;
-}
+} */
 
 /* SECTION 3 */
-#section3{
+/* #section3{
     height: fit-content;
     width: 100%;
     padding-bottom: 2rem;
@@ -147,7 +150,7 @@ section {
 #section4{
     height: fit-content;
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 0rem;
 }
 
 #bar{
@@ -163,15 +166,4 @@ section {
 
 .s4c2{
     flex:1;
-}
-
-
-#section5{
-    padding-top: 2rem;
-}
-
-#section6{
-    text-align: center;
-    align-items: center;
-    font-size:0.7rem;
-}
+} */
